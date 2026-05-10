@@ -1,4 +1,6 @@
+<base target="_top">
 <style>
+/* GOOGLE SITES CLICK FIX */
 .directory-wrapper,
 .directory-wrapper * {
     pointer-events: auto !important;
@@ -70,7 +72,6 @@
     position: relative;
     z-index: 99999;
     width: 100%;
-    min-width: 0;
 }
 
 .care-link:hover {
@@ -83,31 +84,19 @@
     content: "→";
     font-size: 13px;
     opacity: 0.3;
-    pointer-events: none;
-    flex-shrink: 0;
 }
 
-/* --- Mobile --- */
+/* --- Mobile / Responsive --- */
 @media (max-width: 600px) {
-    .directory-wrapper {
-        padding: 10px;
-        overflow-x: hidden;
-    }
-
     .link-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px 15px;
-        width: 100%;
     }
-
-    .care-link {
-        font-size: 14px;
-    }
+    .care-link { font-size: 14px; }
 }
 </style>
 
 <div class="directory-wrapper">
-
     <h1 class="directory-title">Fiches d'entretien</h1>
     <p class="directory-subtitle">Sélectionnez votre plante pour consulter nos conseils.</p>
 
@@ -131,13 +120,61 @@
         </div>
     </div>
 
+    <div class="plant-group">
+        <div class="group-title">Philodendron</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-pink-princess" class="care-link">Philodendron Pink Princess</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-billietiae" class="care-link">Philodendron Billietiae</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-florida-beauty" class="care-link">Philodendron Florida Beauty</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-red-anderson" class="care-link">Philodendron Red Anderson</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-gigas" class="care-link">Philodendron Gigas</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Hoya</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/hoya-lacunosa" class="care-link">Hoya Lacunosa</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/hoya" class="care-link">Hoya (Général)</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Succulentes & Autres</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/aeonium-arboreum" class="care-link">Aeonium Arboreum</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/echeveria" class="care-link">Echeveria</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/queue-dane" class="care-link">Queue d’Âne</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/zamioculcas-zamiifolia" class="care-link">Zamioculcas Zamiifolia</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/chlorophytum" class="care-link">Chlorophytum</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/coleus" class="care-link">Coleus</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Terrarium & Mousses</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/mousse-de-java" class="care-link">Mousse de Java</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/pilea-glauca" class="care-link">Pilea Glauca</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/callisia-repens" class="care-link">Callisia Repens</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/epipremnum" class="care-link">Epipremnum</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/dionaea-muscipula" class="care-link">Dionaea Muscipula (Vénus)</a>
+        </div>
+    </div>
 </div>
 
 <script>
-document.querySelectorAll('.care-link').forEach(link => {
+  // Force click handling for Google Sites Sandbox
+  document.querySelectorAll('.care-link').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.open(this.href, '_blank');
+      const url = this.getAttribute('href');
+      if (window.top) {
+        try {
+          window.top.location.href = url;
+        } catch (e) {
+          // If security prevents window.top access, standard link behavior takes over
+        }
+      }
     });
-});
+  });
 </script>
