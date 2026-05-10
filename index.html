@@ -177,10 +177,18 @@
 </div>
 
 <script>
-  // Force all links within this wrapper to target the top-level window
+  // This listener forces the parent page to redirect to the link's URL
   document.querySelectorAll('.care-link').forEach(link => {
     link.addEventListener('click', function(e) {
-      window.top.location.href = this.href;
+      e.preventDefault();
+      const url = this.getAttribute('href');
+      
+      // Attempt to set the parent's window location
+      if (window.top) {
+        window.top.location.href = url;
+      } else {
+        window.location.href = url;
+      }
     });
   });
 </script>
