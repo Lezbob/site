@@ -1,0 +1,180 @@
+<style>
+/* GOOGLE SITES CLICK FIX */
+.directory-wrapper,
+.directory-wrapper * {
+    pointer-events: auto !important;
+    box-sizing: border-box;
+}
+
+/* --- Container --- */
+.directory-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 15px;
+    color: #4a4a4a;
+    position: relative;
+    z-index: 9999;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Headers --- */
+.directory-title {
+    color: #38761d;
+    font-weight: 400;
+    font-size: 24px;
+    margin: 0 0 5px 0;
+}
+
+.directory-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* --- Groups --- */
+.plant-group {
+    margin-bottom: 40px;
+}
+
+.group-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #b98d93;
+    margin-bottom: 15px;
+    font-weight: 700;
+    border-left: 3px solid #e9d1d4;
+    padding-left: 10px;
+}
+
+/* --- Grid --- */
+.link-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px 35px;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* --- Links --- */
+.care-link {
+    text-decoration: none !important;
+    color: #4a4a4a !important;
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f3f0ed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+
+    cursor: pointer !important;
+    position: relative;
+    z-index: 99999;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.care-link:hover {
+    color: #38761d !important;
+    border-bottom-color: #38761d !important;
+    padding-left: 8px;
+}
+
+.care-link::after {
+    content: "→";
+    font-size: 13px;
+    opacity: 0.3;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+/* --- Mobile / Responsive Fix --- */
+@media (max-width: 600px) {
+    .directory-wrapper {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    .link-list {
+        /* keep grid, don't stack vertically */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 15px;
+        width: 100%;
+    }
+
+    .care-link {
+        font-size: 14px;
+    }
+}
+</style>
+
+<div class="directory-wrapper">
+
+    <h1 class="directory-title">Fiches d'entretien</h1>
+    <p class="directory-subtitle">Sélectionnez votre plante pour consulter nos conseils.</p>
+
+    <div class="plant-group">
+        <div class="group-title">Alocasia</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/alocasia-regal-shield" target="_blank" class="care-link">Alocasia Regal Shield</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/alocasia-silver-dragon" target="_blank" class="care-link">Alocasia Silver Dragon</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/alocasia-frydek" target="_blank" class="care-link">Alocasia Frydek</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Monstera & Rhaphidophora</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-deliciosa" target="_blank" class="care-link">Monstera Deliciosa</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-adansonii" target="_blank" class="care-link">Monstera Adansonii</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-borsigiana-mint" target="_blank" class="care-link">Monstera Borsigiana Mint</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-burle-flame-marx" target="_blank" class="care-link">Monstera Burle Flame Marx</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/tetrasperma-rhaphidophora-albo" target="_blank" class="care-link">Rhaphidophora Albo</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Philodendron</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-pink-princess" target="_blank" class="care-link">Philodendron Pink Princess</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-billietiae" target="_blank" class="care-link">Philodendron Billietiae</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-florida-beauty" target="_blank" class="care-link">Philodendron Florida Beauty</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-red-anderson" target="_blank" class="care-link">Philodendron Red Anderson</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-gigas" target="_blank" class="care-link">Philodendron Gigas</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Hoya</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/hoya-lacunosa" target="_blank" class="care-link">Hoya Lacunosa</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/hoya" target="_blank" class="care-link">Hoya (Général)</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Succulentes & Autres</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/aeonium-arboreum" target="_blank" class="care-link">Aeonium Arboreum</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/echeveria" target="_blank" class="care-link">Echeveria</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/queue-dane" target="_blank" class="care-link">Queue d’Âne</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/zamioculcas-zamiifolia" target="_blank" class="care-link">Zamioculcas Zamiifolia</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/chlorophytum" target="_blank" class="care-link">Chlorophytum</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/coleus" target="_blank" class="care-link">Coleus</a>
+        </div>
+    </div>
+
+    <div class="plant-group">
+        <div class="group-title">Terrarium & Mousses</div>
+        <div class="link-list">
+            <a href="https://www.madameplantes.ca/fiche-dentretien/mousse-de-java" target="_blank" class="care-link">Mousse de Java</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/pilea-glauca" target="_blank" class="care-link">Pilea Glauca</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/callisia-repens" target="_blank" class="care-link">Callisia Repens</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/epipremnum" target="_blank" class="care-link">Epipremnum</a>
+            <a href="https://www.madameplantes.ca/fiche-dentretien/dionaea-muscipula" target="_blank" class="care-link">Dionaea Muscipula (Vénus)</a>
+        </div>
+    </div>
+
+</div>
