@@ -1,180 +1,128 @@
-<base target="_top">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* GOOGLE SITES CLICK FIX */
-.directory-wrapper,
-.directory-wrapper * {
-    pointer-events: auto !important;
-    box-sizing: border-box;
-}
+  :root {
+    --primary-green: #2d4c3b; /* Vert profond pour l'identité visuelle */
+    --accent-gold: #c5a059;   /* Or mat pour les détails */
+    --text-dark: #333;
+    --bg-light: #ffffff;
+  }
 
-/* --- Container --- */
-.directory-wrapper {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 15px;
-    color: #4a4a4a;
-    position: relative;
-    z-index: 9999;
-    max-width: 100%;
+  /* RE-ENABLING SCROLLBARS AND REMOVING HEIGHT LIMITS */
+  html, body {
+    margin: 0 !important;
+    padding: 10px !important;
+    background-color: transparent;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    /* This allows vertical scrolling if the cards exceed the widget height */
+    overflow-y: auto !important; 
     overflow-x: hidden;
-}
+  }
 
-/* --- Headers --- */
-.directory-title {
-    color: #38761d;
-    font-weight: 400;
-    font-size: 24px;
-    margin: 0 0 5px 0;
-}
-
-.directory-subtitle {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 30px;
-}
-
-/* --- Groups --- */
-.plant-group {
-    margin-bottom: 40px;
-}
-
-.group-title {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #b98d93;
-    margin-bottom: 15px;
-    font-weight: 700;
-    border-left: 3px solid #e9d1d4;
-    padding-left: 10px;
-}
-
-/* --- Grid --- */
-.link-list {
+  .guides-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 12px 35px;
-    width: 100%;
-    max-width: 100%;
-}
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
 
-/* --- Links --- */
-.care-link {
-    text-decoration: none !important;
-    color: #4a4a4a !important;
-    font-size: 16px;
-    padding: 10px 0;
-    border-bottom: 1px solid #f3f0ed;
+  .guide-card {
+    background: var(--bg-light);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    transition: all 0.2s ease;
-    cursor: pointer !important;
-    position: relative;
-    z-index: 99999;
-    width: 100%;
-}
+    justify-content: center;
+    min-height: 180px; /* Keeping your original large card size */
+  }
 
-.care-link:hover {
-    color: #38761d !important;
-    border-bottom-color: #38761d !important;
-    padding-left: 8px;
-}
+  .guide-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    border-color: var(--accent-gold);
+  }
 
-.care-link::after {
-    content: "→";
-    font-size: 13px;
-    opacity: 0.3;
-}
+  .icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+  }
 
-/* --- Mobile / Responsive --- */
-@media (max-width: 600px) {
-    .link-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px 15px;
-    }
-    .care-link { font-size: 14px; }
-}
+  .guide-card h3 {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: var(--primary-green);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .btn-label {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s;
+  }
+
+  .guide-card:hover .btn-label {
+    border-bottom: 1px solid var(--accent-gold);
+  }
+
 </style>
+</head>
+<body>
 
-<div class="directory-wrapper">
-    <h1 class="directory-title">Fiches d'entretien</h1>
-    <p class="directory-subtitle">Sélectionnez votre plante pour consulter nos conseils.</p>
+<div class="guides-grid">
+  
+  <a href="https://sites.google.com/view/madameplantes/fiche-dentretien?authuser=3" class="guide-card">
+    <span class="icon">🌿</span>
+    <h3>Fiches d'entretien pour les plantes</h3>
+    <div class="btn-label">Explorer les fiches</div>
+  </a>
 
-    <div class="plant-group">
-        <div class="group-title">Alocasia</div>
-        <div class="link-list">
-            <a href="https://www.madameplantes.ca/fiche-dentretien/alocasia-regal-shield" class="care-link">Alocasia Regal Shield</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/alocasia-silver-dragon" class="care-link">Alocasia Silver Dragon</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/alocasia-frydek" class="care-link">Alocasia Frydek</a>
-        </div>
-    </div>
+  <a href="https://sites.google.com/view/madameplantes/guides-dentretien?authuser=3" class="guide-card">
+    <span class="icon">📖</span>
+    <h3>Guides d'entretien généraux</h3>
+    <div class="btn-label">Lire les guides</div>
+  </a>
 
-    <div class="plant-group">
-        <div class="group-title">Monstera & Rhaphidophora</div>
-        <div class="link-list">
-            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-deliciosa" class="care-link">Monstera Deliciosa</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-adansonii" class="care-link">Monstera Adansonii</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-borsigiana-mint" class="care-link">Monstera Borsigiana Mint</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/monstera-burle-flame-marx" class="care-link">Monstera Burle Flame Marx</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/tetrasperma-rhaphidophora-albo" class="care-link">Rhaphidophora Albo</a>
-        </div>
-    </div>
+  <a href="https://sites.google.com/view/madameplantes/microfaune-bioactive/isopodes?authuser=3" class="guide-card">
+    <span class="icon">🍂</span>
+    <h3>Guide d'entretien pour Isopodes</h3>
+    <div class="btn-label">Voir le guide</div>
+  </a>
 
-    <div class="plant-group">
-        <div class="group-title">Philodendron</div>
-        <div class="link-list">
-            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-pink-princess" class="care-link">Philodendron Pink Princess</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-billietiae" class="care-link">Philodendron Billietiae</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-florida-beauty" class="care-link">Philodendron Florida Beauty</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-red-anderson" class="care-link">Philodendron Red Anderson</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/philodendron-gigas" class="care-link">Philodendron Gigas</a>
-        </div>
-    </div>
+  <a href="https://sites.google.com/view/madameplantes/microfaune-bioactive/guide-de-vermicompostage?authuser=3" class="guide-card">
+    <span class="icon">🪱</span>
+    <h3>Guide de vermicompostage</h3>
+    <div class="btn-label">Apprendre la méthode</div>
+  </a>
 
-    <div class="plant-group">
-        <div class="group-title">Hoya</div>
-        <div class="link-list">
-            <a href="https://www.madameplantes.ca/fiche-dentretien/hoya-lacunosa" class="care-link">Hoya Lacunosa</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/hoya" class="care-link">Hoya (Général)</a>
-        </div>
-    </div>
+  <a href="https://sites.google.com/view/madameplantes/microfaune-bioactive/guide-pour-bokashi?authuser=3" class="guide-card">
+    <span class="icon">🏺</span>
+    <h3>Guide pour le Bokashi</h3>
+    <div class="btn-label">Découvrir le Bokashi</div>
+  </a>
 
-    <div class="plant-group">
-        <div class="group-title">Succulentes & Autres</div>
-        <div class="link-list">
-            <a href="https://www.madameplantes.ca/fiche-dentretien/aeonium-arboreum" class="care-link">Aeonium Arboreum</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/echeveria" class="care-link">Echeveria</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/queue-dane" class="care-link">Queue d’Âne</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/zamioculcas-zamiifolia" class="care-link">Zamioculcas Zamiifolia</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/chlorophytum" class="care-link">Chlorophytum</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/coleus" class="care-link">Coleus</a>
-        </div>
-    </div>
+  <a href="https://sites.google.com/view/madameplantes/microfaune-bioactive/soins-collemboles-roses?authuser=3" class="guide-card">
+    <span class="icon">🐜</span>
+    <h3>Soin des collemboles</h3>
+    <div class="btn-label">Conseils de soin</div>
+  </a>
 
-    <div class="plant-group">
-        <div class="group-title">Terrarium & Mousses</div>
-        <div class="link-list">
-            <a href="https://www.madameplantes.ca/fiche-dentretien/mousse-de-java" class="care-link">Mousse de Java</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/pilea-glauca" class="care-link">Pilea Glauca</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/callisia-repens" class="care-link">Callisia Repens</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/epipremnum" class="care-link">Epipremnum</a>
-            <a href="https://www.madameplantes.ca/fiche-dentretien/dionaea-muscipula" class="care-link">Dionaea Muscipula (Vénus)</a>
-        </div>
-    </div>
 </div>
 
-<script>
-  // Force click handling for Google Sites Sandbox
-  document.querySelectorAll('.care-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const url = this.getAttribute('href');
-      if (window.top) {
-        try {
-          window.top.location.href = url;
-        } catch (e) {
-          // If security prevents window.top access, standard link behavior takes over
-        }
-      }
-    });
-  });
-</script>
+</body>
+</html>
